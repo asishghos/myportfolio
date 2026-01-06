@@ -27,6 +27,87 @@ import {
   githubActivity
 } from "./data/content.js";
 
+
+import { useEffect, useState } from "react";
+import { GitHubCalendar } from "react-github-calendar";
+import { IoIosAnalytics } from "react-icons/io";
+
+/* ---- theme config ---- */
+const githubTheme = {
+  light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
+};
+
+/* ---------------- GITHUB CALENDAR WITH YEAR SELECTOR ---------------- */
+function GitHubCalendarSection() {
+  const [year, setYear] = useState(undefined);
+  const [colorScheme, setColorScheme] = useState("dark");
+
+  const username = import.meta.env.VITE_GITHUB_USERNAME;
+  const joinYear = Number(import.meta.env.VITE_GITHUB_JOIN_YEAR);
+  const currentYear = new Date().getFullYear();
+
+  useEffect(() => {
+    // simple theme detection
+    const isDark = document.documentElement.classList.contains("dark");
+    setColorScheme(isDark ? "dark" : "light");
+  }, []);
+
+  if (!username || !joinYear) {
+    return (
+      <div className="flex flex-col items-center justify-center text-zinc-400 gap-3">
+        <IoIosAnalytics className="text-4xl" />
+        <p>GitHub credentials not found in .env</p>
+      </div>
+    );
+  }
+
+  const years = Array.from(
+    { length: currentYear - joinYear + 1 },
+    (_, i) => currentYear - i
+  ).slice(0, 5);
+
+  return (
+    <section className="py-24 px-6 bg-zinc-950">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-semibold text-white mb-8">
+          Contribution Graph
+        </h2>
+
+        <div className="flex flex-col xl:flex-row gap-6">
+          {/* Calendar */}
+          <div className="bg-zinc-900 border border-white/5 p-6 rounded-xl">
+            <GitHubCalendar
+              username={username}
+              theme={githubTheme}
+              colorScheme={colorScheme}
+              blockSize={13}
+              year={year}
+            />
+          </div>
+
+          {/* Year Selector */}
+          <div className="flex xl:flex-col gap-2">
+            {years.map((y) => (
+              <button
+                key={y}
+                onClick={() => setYear(y === year ? undefined : y)}
+                className={`px-4 py-2 rounded-md border text-sm
+                  ${y === year
+                    ? "bg-emerald-500 text-black"
+                    : "border-zinc-700 text-zinc-400 hover:text-white"
+                  }`}
+              >
+                {y}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- NAVBAR ---------------- */
 
 const sections = [
@@ -178,7 +259,7 @@ const techStack = [
   { name: "Kafka", icon: <SiApachekafka /> },
   { name: "Flutter", icon: <SiFlutter /> },
   { name: "Firebase", icon: <SiFirebase /> },
-  { name: "AWS", icon: <FaAws  /> },
+  { name: "AWS", icon: <FaAws /> },
   { name: "Git", icon: <FaGitAlt /> },
   { name: "Postman", icon: <SiPostman /> }
 ];
@@ -198,33 +279,6 @@ function SkillsSection() {
               <span className="text-3xl">{s.icon}</span>
               <span className="text-sm text-zinc-300">{s.name}</span>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- GITHUB ---------------- */
-
-function GithubSection() {
-  return (
-    <section id="github" className="py-24 px-6 bg-zinc-950">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-semibold text-white mb-6">
-          Contribution Graph
-        </h2>
-
-        <p className="text-zinc-400 mb-4">
-          {githubActivity.summary}
-        </p>
-
-        <div className="grid grid-cols-12 gap-1">
-          {Array.from({ length: 120 }).map((_, i) => (
-            <div
-              key={i}
-              className="h-3 w-3 rounded-sm bg-emerald-500/30"
-            />
           ))}
         </div>
       </div>
@@ -277,7 +331,8 @@ export default function App() {
       <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
-      <GithubSection />
+      <GitHubCalendarSection />
+      {/* <GithubSection /> */}
       <ContactSection />
       <Footer />
     </div>
