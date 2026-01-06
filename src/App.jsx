@@ -104,11 +104,11 @@ function Hero() {
 
         {/* Decorative cube grid */}
         <div className="hidden md:block">
-          <div className="grid grid-cols-3 gap-4 opacity-30">
+          <div className="grid grid-cols-3 gap-4">
             {[...Array(9)].map((_, i) => (
               <div
                 key={i}
-                className="h-24 w-24 border border-emerald-500/30 rounded-lg"
+                className="h-24 w-24 border border-green-500/30 rounded-lg"
               />
             ))}
           </div>
@@ -202,7 +202,7 @@ function SkillsSection() {
           {techStack.map((s) => (
             <div
               key={s.name}
-              className="flex flex-col items-center justify-center gap-3 bg-zinc-900 border border-white/5 rounded-xl py-6 text-emerald-400"
+              className="flex flex-col items-center justify-center gap-3 bg-zinc-900 border border-white/5 rounded-xl py-6"
             >
               <span className="text-3xl">{s.icon}</span>
               <span className="text-sm text-zinc-300">{s.name}</span>
