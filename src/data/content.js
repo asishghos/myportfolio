@@ -8,11 +8,11 @@ export const profile = {
   links: [
     { label: 'LinkedIn', href: 'https://linkedin.com/in/asish-ghosh' },
     { label: 'GitHub', href: 'https://github.com/asishghos' },
-    { label: 'CodeChef', href: '#' },
-    { label: 'Codeforces', href: '#' },
-    { label: 'LeetCode', href: '#' },
-    { label: 'AtCoder', href: '#' },
-    { label: 'Codolio', href: '#' }
+    { label: 'CodeChef', href: 'https://www.codechef.com/users/asish001' },
+    { label: 'Codeforces', href: 'https://codeforces.com/profile/asishghosh' },
+    { label: 'LeetCode', href: 'https://leetcode.com/u/asishghosh/' },
+    { label: 'AtCoder', href: 'https://atcoder.jp/users/asishghosh' },
+    { label: 'Codolio', href: 'https://codolio.com/profile/SuhZrEbkhdy' }
   ]
 };
 
