@@ -484,16 +484,16 @@ function ProjectsSection() {
 /* ---------------- SKILLS WITH 3D HOVER & GIF ---------------- */
 
 const techStack = [
-  { name: "React", icon: <FaReact size={40} color="white" />, color: "from-cyan-500 to-blue-500" },
-  { name: "Node.js", icon: <FaNodeJs size={40} color="white" />, color: "from-green-500 to-emerald-600" },
-  { name: "MongoDB", icon: <SiMongodb size={40} color="white" />, color: "from-green-600 to-lime-600" },
-  { name: "Redis", icon: <SiRedis size={40} color="white" />, color: "from-red-500 to-orange-500" },
-  { name: "Kafka", icon: <SiApachekafka size={40} color="white" />, color: "from-amber-500 to-yellow-600" },
-  { name: "Flutter", icon: <SiFlutter size={40} color="white" />, color: "from-sky-400 to-blue-600" },
-  { name: "Firebase", icon: <SiFirebase size={40} color="white" />, color: "from-yellow-400 to-orange-500" },
-  { name: "AWS", icon: <FaAws size={40} color="white" />, color: "from-orange-400 to-yellow-500" },
-  { name: "Git", icon: <FaGitAlt size={40} color="white" />, color: "from-orange-500 to-red-500" },
-  { name: "Postman", icon: <SiPostman size={40} color="white" />, color: "from-orange-400 to-amber-500" }
+  { name: "React", icon: <FaReact size={40} color="white" />, color: "from-zinc-400 to-zinc-600" },
+  { name: "Node.js", icon: <FaNodeJs size={40} color="white" />, color: "from-zinc-500 to-zinc-700" },
+  { name: "MongoDB", icon: <SiMongodb size={40} color="white" />, color: "from-zinc-400 to-zinc-600" },
+  { name: "Redis", icon: <SiRedis size={40} color="white" />, color: "from-zinc-500 to-zinc-700" },
+  { name: "Kafka", icon: <SiApachekafka size={40} color="white" />, color: "from-zinc-600 to-zinc-800" },
+  { name: "Flutter", icon: <SiFlutter size={40} color="white" />, color: "from-zinc-400 to-zinc-600" },
+  { name: "Firebase", icon: <SiFirebase size={40} color="white" />, color: "from-zinc-500 to-zinc-700" },
+  { name: "AWS", icon: <FaAws size={40} color="white" />, color: "from-zinc-400 to-zinc-600" },
+  { name: "Git", icon: <FaGitAlt size={40} color="white" />, color: "from-zinc-500 to-zinc-700" },
+  { name: "Postman", icon: <SiPostman size={40} color="white" />, color: "from-zinc-400 to-zinc-600" }
 ];
 
 function SkillsSection() {
@@ -697,8 +697,8 @@ function GitHubCalendarSection() {
   };
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-400">
+    <div className="space-y-6 w-3/4 mx-auto pt-10">
+      <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-400">
         Contribution Graph
       </h2>
 
